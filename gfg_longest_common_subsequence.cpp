@@ -2,6 +2,8 @@
 using namespace std;
 
 /*
+    ProblemLink => https://practice.geeksforgeeks.org/problems/longest-common-subsequence/0
+    
     for a certain index i in both string
     1. if ith character of both string is same then we add 1 to answer and forward the both string position to i + 1
     2. if ith character of both string is not same then we take the answer which is max of these
