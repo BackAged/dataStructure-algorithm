@@ -37,8 +37,7 @@ void clearVisited(int s1N, int s2N) {
     }
 }
 
-int main()
- {
+int main() {
 	int t;
 	cin >> t;
 	
