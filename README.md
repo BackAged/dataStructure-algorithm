@@ -1,1 +1,3 @@
-# 100_days_of_problem_solving
+# This repo contains various Online Judges Problem solutions Categorically
+
+## LightOJ, LeetCode, GeeksForGeeks 
