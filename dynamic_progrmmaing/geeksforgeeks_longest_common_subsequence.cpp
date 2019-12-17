@@ -30,7 +30,7 @@ int longestCommonSubSequence(string s1, string s2, int s1N, int s2N) {
 }
 
 void clearVisited(int s1N, int s2N) {
-    for (int i = 0; i < s1N; i++) {
+for (int i = 0; i < s1N; i++) {
         for (int j = 0; j < s2N; j++) {
             visited[i][j] = -1;
         }
@@ -42,17 +42,16 @@ int main() {
 	cin >> t;
 	
 	while (t--) {
-        int an, bn;
-        cin >> an;
-        cin >> bn;
+	    int an, bn;
+	    cin >> an;
+	    cin >> bn;
 
-        string a, b;
-        cin >> a;
-        cin >> b;
+	    string a, b;
+	    cin >> a;
+	    cin >> b;
 
-        clearVisited(an, bn);
-
-        cout << longestCommonSubSequence(a, b, an-1, bn-1) << endl;
+	    clearVisited(an, bn);
+	    cout << longestCommonSubSequence(a, b, an-1, bn-1) << endl;
 	}
 	
 	return 0;
