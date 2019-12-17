@@ -30,7 +30,7 @@ int longestCommonSubSequence(string s1, string s2, int s1N, int s2N) {
 }
 
 void clearVisited(int s1N, int s2N) {
-for (int i = 0; i < s1N; i++) {
+    for (int i = 0; i < s1N; i++) {
         for (int j = 0; j < s2N; j++) {
             visited[i][j] = -1;
         }
