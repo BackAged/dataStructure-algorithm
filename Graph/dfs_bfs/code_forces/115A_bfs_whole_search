@@ -1,0 +1,63 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+// those who has no manager can be in any group doesn't take extra
+// disjoint connected compomemnt maximum depth level is the answer
+
+int visited[2005];
+vector<int>graph[2005];
+int level[2005];
+
+int min_group = 1;
+
+void bfs(int source) {
+    queue<int>q;
+    q.push(source);
+
+    
+    while (!q.empty()) {
+        int f = q.front();
+        q.pop();
+        visited[source] = 1;
+        
+        for (int i = 0; i < graph[f].size(); i++) {
+            int to = graph[f][i];
+           
+            if (!visited[to]) {
+               q.push(to);
+               visited[to] = 1;
+               level[to] = level[f] + 1;
+               min_group = max(min_group, level[to]);
+            }
+            
+            
+        }
+        
+    }
+}
+
+
+int main()
+{
+    int n, x;
+    cin >> n;
+    
+    // forming the graph where x is the parent of i'th node
+    for (int i = 1; i <= n; i++) {
+        cin >> x;
+        graph[x].push_back(i);
+    }
+    
+    level[1] = 1;
+    
+    for (int i = 1; i <= n; i++) {
+        if (!visited[i]) {
+            level[i] = 1;
+            memset(visited, 0, sizeof(visited));
+            bfs(i);
+        }
+    }
+    cout << min_group << endl;
+    return 0;
+}

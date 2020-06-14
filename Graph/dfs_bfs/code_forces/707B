@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+const int N = 1e5+10;
+vector< pair<long long int, long long int> >graph[N];
+vector<long long int>store;
+map<long long int, int>storage;
+
+int main()
+{
+    int n, m, k;
+    scanf("%d %d %d", &n, &m, &k);
+    
+    long long int a, b, c;
+    
+    for (int i = 0; i < m; i++) {
+        cin >> a >> b >> c;
+        graph[a].push_back( make_pair(b, c) );
+        graph[b].push_back( make_pair(a, c) );
+    }
+    for (int i = 0; i < k; i++) {
+        cin >> a;
+        storage[a] = 1;
+        store.push_back(a);
+    }
+    long long int answer = LLONG_MAX;
+    
+    for (int i = 0; i < k; i++) {
+        long long int st = store[i];
+        for (int i = 0; i < graph[st].size(); i++) {
+            
+            if (storage[graph[st][i].first])
+                continue;
+            long long int w = graph[st][i].second;
+            
+            answer = min(answer, w);
+        }
+    }
+    if (answer == LLONG_MAX)
+        cout << - 1 << endl;
+    else
+        cout << answer << endl;
+    
+    return 0;
+}
